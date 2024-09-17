@@ -32,7 +32,12 @@ object mariano {
     method pesoGolosinas(){
         bolsa.peso().sum{ }
     }
-
+    method golosinasFaltantes(golosinasDeseadas){
+        return golosinasDeseadas.filter { gd => !bolsa.contains(gd) }
+    }
+    method gustosFaltantes(gustosDeseados) {
+        return gustosDeseados.filter { gd => !bolsa.all { g => g.sabor() == gd } }
+    }
 }
 
 
